@@ -1,0 +1,63 @@
+.cards_container{
+
+
+    display: flex;
+    justify-content: start;
+    flex: 1 0 21%;
+    background-color: rgb(197, 194, 194);
+    height: 100vh;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    align-content: flex-start;
+
+
+
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+.logo{
+    margin: .5em;
+}
+.logo img{
+    height: 3em;
+    width: auto;
+}
+
+.info{
+    margin-right: .5em;
+}
+.card{
+    margin: 1em;
+  
+    border-radius: .5em;
+    width: 25%;
+    max-width: 20em;
+    min-width: 13em;
+    max-height: 10em;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    color: grey;
+}
+
+.name{
+    font-weight: 700;
+}
+
+.top_of_card{
+    display:flex;
+    margin-top: .5em;
+}
+
+.discription{
+    margin-left: 1em;
+    margin-right: 1em;
+    overflow-wrap: break-word;
+    font-style: italic;
+    
+}
