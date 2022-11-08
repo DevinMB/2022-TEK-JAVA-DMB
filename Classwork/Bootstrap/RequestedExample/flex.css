@@ -1,27 +1,23 @@
 .cards_container{
-
-
+    margin-top: 10em;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     flex: 1 0 21%;
     background-color: rgb(197, 194, 194);
-    height: 100vh;
     flex-wrap: wrap;
-    align-items:flex-start;
-    align-content: flex-start;
-
-
-
+    align-content: center;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    
+    margin: 0;
+    padding: 0;
 }
 
 .logo{
     margin: .5em;
 }
+
 .logo img{
     height: 3em;
     width: auto;
@@ -30,16 +26,15 @@ body {
 .info{
     margin-right: .5em;
 }
+
 .card{
-    margin: 1em;
-  
+    margin: 1em;  
     border-radius: .5em;
     width: 25%;
     max-width: 20em;
     min-width: 13em;
     max-height: 10em;
     background-color: white;
-
     display: flex;
     flex-direction: column;
     color: grey;
@@ -58,6 +53,15 @@ body {
     margin-left: 1em;
     margin-right: 1em;
     overflow-wrap: break-word;
-    font-style: italic;
-    
+    font-style: italic;   
+}
+
+.footer{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    justify-content: center;
 }
