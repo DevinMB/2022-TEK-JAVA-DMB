@@ -1,0 +1,37 @@
+.flex_main_container{
+    display: flex;
+    border-color: black;
+    border-style: solid;
+    border-radius: 1em;
+    
+}
+.left_logo{
+    border-style: solid;
+    flex:6;
+}
+.menu_items{
+    border-style: solid;
+    flex:1;
+    
+}
+.menu_items ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    
+}
+.menu_items li{
+    padding: .5em;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition-duration:.5s;
+}
+.menu_items li:hover{
+    background-color: aquamarine;
+    transition-duration:.5s;
+}
