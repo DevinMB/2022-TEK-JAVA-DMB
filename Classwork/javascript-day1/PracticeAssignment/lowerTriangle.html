@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        
+        let length = prompt('Input length');
+
+        console.log('Lower Triangle:')
+
+        
+        let count = 0;
+        let index = 0;
+
+        //length loop
+        for(let i = 0; i <= length; i++){
+            //width loop
+            let stars = '';
+            for(let j = 0; j <= length; j++){
+                if(index<=j){
+                    stars += ' ';    
+                }else{
+                    stars += '*';    
+                }
+            }
+            index++;
+            console.log(stars);
+        }
+        console.log(length);
+    </script>
+
+
+
+
+
+    
+
+</body>
+</html>

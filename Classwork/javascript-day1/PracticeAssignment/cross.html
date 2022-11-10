@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        
+        let size = prompt('Input size');
+
+        console.log('Cross:')
+
+        
+        let count = 0;
+        let index = 0;
+
+        //length loop
+        for(let i = 0; i< size; i++){
+            //width loop
+            let stars = '';
+            for(let j = 0; j<= size; j++){
+                if(index==j || index==(size-j)){
+                    stars += '*';    
+                }else{
+                    stars += ' ';    
+                }
+            }
+            index++;
+            console.log(stars);
+        }
+        console.log(size);
+    </script>
+
+
+
+
+
+    
+
+</body>
+</html>
