@@ -14,19 +14,24 @@
         const input = prompt('Enter sequence of positive integers separated by operands');
         //let input ='56+7-5'
 
-        // strip anything other than digits, (), -+/* and .
+        // strip out only operands
         let operands = input.replace(/[^-()*+.]/g, '');
 
+        // strip out only numbers separated by operand
         let numbers = input.split(/[-*/+]/);
+
 
         console.log(operands);
         console.log(numbers);
 
+        
         let opIndex = 0;
         let currentOperand = operands[0];
 
+        //store answer, initialize with first number
         let answer = parseInt(numbers[0]);
 
+        //simple function to call when evaluating two numbers
         function calculator(a, b, operation) {
             if (operation == '+') return parseInt(a) + parseInt(b);
             if (operation == '-') return parseInt(a) - parseInt(b);
@@ -34,12 +39,11 @@
             if (operation == '/') return parseInt(b) === 0 ? "Can't divide by 0!" : parseInt(a) / parseInt(b);
         }
 
-        //loop through numbers
+        //loop through numbers input
         for(let i = 1; i < numbers.length; i++){
+            
             currentOperand = operands[opIndex];
-            if(opIndex < operands.length-1){
-                opIndex++;
-            }
+            opIndex++;
 
             let currentNum = numbers[i];
 
@@ -48,7 +52,7 @@
         }
         
        
-        
+        //display answer
         console.log(answer);
 
 
