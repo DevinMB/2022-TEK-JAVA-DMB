@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+            
+        // take the input
+        const input = prompt('Enter sequence of positive integers separated by operands');
+        //let input ='56+7-5'
+
+        // strip anything other than digits, (), -+/* and .
+        let operands = input.replace(/[^-()*+.]/g, '');
+
+        let numbers = input.split(/[-*/+]/);
+
+        console.log(operands);
+        console.log(numbers);
+
+        let opIndex = 0;
+        let currentOperand = operands[0];
+
+        let answer = parseInt(numbers[0]);
+
+        function calculator(a, b, operation) {
+            if (operation == '+') return parseInt(a) + parseInt(b);
+            if (operation == '-') return parseInt(a) - parseInt(b);
+            if (operation == '*') return parseInt(a) * parseInt(b);
+            if (operation == '/') return parseInt(b) === 0 ? "Can't divide by 0!" : parseInt(a) / parseInt(b);
+        }
+
+        //loop through numbers
+        for(let i = 1; i < numbers.length; i++){
+            currentOperand = operands[opIndex];
+            if(opIndex < operands.length-1){
+                opIndex++;
+            }
+
+            let currentNum = numbers[i];
+
+            answer =  calculator(answer,currentNum,currentOperand);
+
+        }
+        
+       
+        
+        console.log(answer);
+
+
+        // // The Evil way to do this...
+        // // strip anything other than digits, (), -+/* and .
+        // let str = input.replace(/[^-()\d/*+.]/g, '');
+        // console.log(eval(str));
+
+        
+
+    </script>
+
+</body>
+</html>
