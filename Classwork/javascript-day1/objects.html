@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        var student = {
+            firstName:"John"
+            , lastName:"Doe"
+            , age:30
+            , class:"Java developer"
+            ,fullName : function() {
+            return this.firstName + " " + this.lastName;
+            }};
+        student.score = "90%"; // add new property
+        console.log(student.score)
+        console.log(student.class)
+        console.log(student)
+        console.log(student.fullName());
+        var myArray = Object.values(student);
+        console.log(myArray);
+        var txt = '';
+        for (x in student) {
+ 	        txt += student[x];
+            }
+        console.log(txt);
+
+        delete student.age; 
+        
+        console.log(student);
+
+        //student.prototype.birthday = "15 June";
+
+        //console.log(student);
+
+
+        numbers = [1, 2, 3, 4];
+        squares = [];
+        for(n in numbers){
+        squares.push(n**2);
+        }
+        console.log(squares);  //# Output: [1, 4, 9, 16]
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

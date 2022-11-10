@@ -25,14 +25,49 @@
 
     print("Hi this is neat")
 
+    function getLetter(s) {
+    let letter;
+    // Write your code here
+    
+    const A = ['a','e','i','o','u'];
+    const B = ['b','c','d','f','g'];
+    const C = ['h','j','k','l','m'];
+    const D = ['n','p','q','r','s','t','v','w','x','y','z'];
+    
+    let firstLetter = s.charAt(0);
+    
+    switch(s){
+        case (A.includes(s)):
+            letter = 'A';
+            break;
+        case (B.includes(s)):
+            letter = 'B';
+            break;
+        case (C.includes(s)):
+            letter = 'C';
+            break;
+        case (D.includes(s)):
+            letter = 'D';
+            break;
+    
+    }
+        
+    
+    
+    
+    
+    return letter;
+}
 
+
+    console.log(getLetter("adbd"));
 
 </script>
 
 <body>
     
     <div>
-        <input type="button" onclick="print('hello')" value="button" />
+        <input type="button" onclick="getLetter('hello')" value="button" />
     </div>
     
     
