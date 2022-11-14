@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Events</title>
+</head>
+
+<body>
+    <button>Click me</button>
+    <p>Try to change me.</p>
+
+
+    <form>
+        First name:<br>
+        <input type="text" id="fname">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        var button = document.querySelector('button');
+        // Function to modify the text content of the paragraph
+        var changeText = () => {
+            var p = document.querySelector('p');
+            p.textContent = "I changed because of an event handler property.";
+            button.textContent = "I was clicked";
+        }
+        // Add event handler as a property of the button element
+        button.onclick = changeText;
+        const name = document.getElementById("fname");
+        name.addEventListener('focus', changeToCoral);
+        name.addEventListener('blur', changeToWhite);
+        document.querySelector('form').addEventListener("submit",
+            function () { alert(name.value) });
+        function changeToCoral() { name.style.backgroundColor = 'coral'; }
+        function changeToWhite() { name.style.backgroundColor = 'white'; }
+
+    </script>
+</body>
+
+</html>
