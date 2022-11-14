@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1 id="header-title"> Selecting Elements By ID</h1>
+            An ID should be unique within a page. However, if more than one element with the specified ID exists, the
+            getElementById() method returns the first element in the source code
+        </div>
+    </header>
+    <div> getElementsByName() will also return elements that have an id attribute with the specified value. For
+        compatibility, you should be careful not to use the same string as both a name and an ID.
+    </div>
+    <ul id="items" class="list-group">
+        <li name="list-group-item">Item 1</li>
+        <li name="list-group-item">Item 2</li>
+        <li name="list-group-item">Item 3</li>
+    </ul>
+
+    <ul id="items" class="list-group">
+        <li class="list-group-item odd">Item 1</li>
+        <li class="list-group-item even">Item 2</li>
+        <li class="list-group-item odd">Item 3</li>
+        <li class="list-group-item even">Item 4</li>
+    </ul>
+
+
+    <script>
+        var header = document.getElementById('header-title');
+        console.log(header);
+        header.textContent = "wowwwWw I changed the content of the header";
+        var items = document.getElementsByClassName('even list-group-item');
+        for (i in items) { console.log(items[i]); }
+        console.log(document.querySelector('ul').childNodes);
+        var ul = document.querySelector('ul');
+        console.log(ul.previousElementSibling);
+        console.log(ul.nextElementSibling);
+
+        function showcommentform() {
+            var data = "Your location is USA";
+            document.getElementById('mylocation').innerHTML = data;
+        }
+
+        document.title = "new title"
+
+    </script>
+</body>
+
+</html>
