@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Events</title>
+</head>
+
+<style>
+    .error{
+        border-color: red;
+        border-style: solid;
+    }
+    .success{
+        border-color: black;
+        border-style: solid;
+    }
+    .hide{
+    display:none;  
+}
+</style>
+
+<body>
+    <!-- <button>Click me</button>
+    <p>Try to change me.</p>
+ -->
+
+    <!-- <form>
+        First name:<br>
+        <input type="text" id="fname">
+        <br>
+        <input type="submit" value="Submit">
+        <br>
+        
+    </form> -->
+
+
+    <form onsubmit="mySubmitFunction(event)">
+        <br>
+        <label>Phone</label>
+        <br>
+        <input type="text" id="phone_number">
+        <br>
+        <div id="phone-error hide">
+            Please add your phone number
+        </div>
+        <br>
+        <label>First Name</label>
+        <br>
+        <input type="text" id="first_name">
+        <br>
+        <div class="first-error hide">
+            Please add your first name
+        </div>
+        <br>
+        <label>Last Name</label>
+        <br>
+        <input type="text" id="last_name">
+        <br>
+        <div class="last-error hide">
+            Please add your last name
+        </div>
+        <br>
+        <br>
+        <button type="submit" >Submit</button>
+    </form>
+
+    <script>
+        function mySubmitFunction(evt){
+            evt.preventDefault();
+
+           
+            let phn = document.getElementById("phone_number");
+            
+            let firstName = document.getElementById("first_name");
+
+            let lastName = document.getElementById("last_name");
+            
+             
+            if(!phoneNumber(phn)){
+                phn.classList.add('error');
+                phn.getElementById("phone-error").classList.remove("hide");
+            } else {
+                phn.classList.remove('error');
+                phn.getElementById("phone-error").classList.add("hide");
+            }
+            
+            if(firstName.value == ""){
+                firstName.classList.add('error');
+            } else {
+                firstName.classList.remove('error');
+            }
+            
+            if(lastName.value == ""){
+                lastName.classList.add('error');
+               
+            } else {
+                lastName.classList.remove('error');
+            }
+
+
+           
+            
+            //alert(phn.value);
+            console.log(phoneNumber(phn));
+            
+
+        }
+
+        function phoneNumber(inputtxt){
+            let phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+            if(inputtxt.value.match(phoneno)){
+                return true;
+            }else{
+                return  false;
+            }
+            }
+
+
+
+
+
+        var button = document.querySelector('button');
+        // Function to modify the text content of the paragraph
+        var changeText = () => {
+            var p = document.querySelector('p');
+            p.textContent = "I changed because of an event handler property.";
+            button.textContent = "I was clicked";
+        }
+        // Add event handler as a property of the button element
+        button.onclick = changeText;
+        const name = document.getElementById("fname");
+        name.addEventListener('focus', changeToCoral);
+        name.addEventListener('blur', changeToWhite);
+        document.querySelector('form').addEventListener("submit", function () { alert(name.value) });
+        function changeToCoral() { name.style.backgroundColor = 'coral'; }
+        function changeToWhite() { name.style.backgroundColor = 'white'; }
+
+    </script>
+</body>
+
+</html>
