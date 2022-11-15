@@ -1,0 +1,118 @@
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.gradient-custom {
+    background: linear-gradient(to right,#009F47,#BED630)
+    }
+
+.login_container{
+    display: flex;
+    border-radius: 2em;
+    max-width: 70em;
+    width: 60em;
+    min-width: 40em;
+    background-color: white;
+}
+.logo{
+    display: flex;
+    
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+}
+.logo img{
+    width: 20em;
+}
+.login_card{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 50%;
+}
+.btn-outline-success:hover {
+    background-color: #50B748 !important;
+    border-color: #50B748 !important ;
+    color: white !important;
+}
+.btn-outline-success{
+    border-color: #CED4DA !important;
+    color: #50B748 !important;
+}
+.bootstrap_container{
+    height: 50%;
+}
+
+.fw-bold{
+    color: #50B748 !important;
+    font-family:'Roboto'; 
+    font-style: italic;
+}
+.register_container{
+    display: flex;
+    border-radius: 2em; 
+    min-width: 20em;
+    background-color: white;
+    flex-direction: column;
+}
+.register_form_container{
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+}
+.register_form_container input{
+    font-family: 'Roboto';
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    min-height: 1em ;
+    padding: 0.1rem 0.2rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    appearance: none;
+
+}
+
+.register_form_container input:focus{
+    border-color: rgb(88, 87, 87);
+    outline: none !important;
+
+    background-color: rgba(128, 128, 128, 0.215);
+    transition: border-color .5s ease-in-out,background-color .5s ease-in-out;
+
+}
+
+.register_form_container button{
+   
+}
+.first_last{
+    display: flex;
+    justify-content: space-evenly;
+}
+.first_last input{
+    flex:1;
+    margin: .2em;
+}
+.register_button{
+    display: flex;
+    justify-content: center;
+}
+
+.register_button button{
+    margin-top: 1em;
+    width: 50%;
+    /* add button styling here */
+}
+
+
+   
