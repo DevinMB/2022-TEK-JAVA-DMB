@@ -52,18 +52,68 @@ body{
     font-family:'Roboto'; 
     font-style: italic;
 }
+
+#sign_up:hover{
+    color:#009F47 !important;
+}
+
 .register_container{
     display: flex;
     border-radius: 2em; 
     min-width: 20em;
     background-color: white;
     flex-direction: column;
+    
 }
+
 .register_form_container{
     margin: 1em;
     display: flex;
     flex-direction: column;
 }
+
+.register_form_header{
+    display: flex;
+    margin: 1em;
+    align-items: center;
+}
+
+.register_logo{
+    display: flex;
+    justify-content: center;
+    flex: .5;
+}
+
+.register_logo img{
+    width: 55%;
+}
+
+.discription{
+    display: flex;
+    justify-content: start;
+    padding-left: 1.5em;
+    font-family: 'Roboto';
+    font-style: italic;
+    color: #212529d6;
+
+}
+
+.discription p {
+    margin: 0;
+}
+
+
+
+.register_text{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: xx-large;
+    font-style: italic;
+    color: #50B748;
+    margin-left: 0em;
+    flex: 2;
+}
+
 .register_form_container input{
     font-family: 'Roboto';
     font-weight: 400;
@@ -76,11 +126,21 @@ body{
     margin-top: .5em;
     margin-bottom: .5em;
     min-height: 1em ;
-    padding: 0.1rem 0.2rem;
+    padding: 0.5rem 0.2rem;
     font-size: 1rem;
     border-radius: 0.3rem;
     appearance: none;
 
+}
+
+
+.register_form_container label{
+    font-family: 'Roboto';
+    font-weight: 400;
+    line-height: 1.5;
+    color: #21252991;
+   
+    padding-right: .5em;
 }
 
 .register_form_container input:focus{
@@ -92,20 +152,42 @@ body{
 
 }
 
-.register_form_container button{
-   
-}
 .first_last{
     display: flex;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: space-between;
 }
 .first_last input{
     flex:1;
-    margin: .2em;
+    width: 45%;
+    padding: .75em;
+    
 }
 .register_button{
     display: flex;
     justify-content: center;
+    
+}
+
+.register_button button{
+    border-color: #fff ;
+    border: solid;
+    border-radius: .65em;
+    border-width: .15em;
+    font-size: larger;
+    padding: .55em;
+    color: #50B748 ;
+    background: transparent;
+    text-decoration: none;
+    transition: background-color .5s ease-in-out;
+    
+}
+
+.register_button button:hover{
+    background-color: #50B748 !important;
+    border-color: #50B748 !important ;
+    color: white !important;
+    transition: background-color .5s ease-in-out;
 }
 
 .register_button button{
@@ -114,5 +196,17 @@ body{
     /* add button styling here */
 }
 
+#first_name_input{
+    margin-right: .1em;
+}
+#last_name_input{
+    margin-left: .1em;
+}
+
+#birth_date_input{
+    color:#757575;
+    padding: 0;
+    padding-left: .2em;
+}
 
    
