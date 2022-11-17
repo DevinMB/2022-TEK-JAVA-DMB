@@ -17,7 +17,7 @@ public class IndexController {
         System.out.println("Index Controller Request");
 
         ModelAndView modelAndView  = new ModelAndView();
-        modelAndView.setViewName("login.html");
+        modelAndView.setViewName("login");
 
         return modelAndView;
     }
@@ -28,7 +28,7 @@ public class IndexController {
         System.out.println("Index Controller Request");
 
         ModelAndView modelAndView  = new ModelAndView();
-        modelAndView.setViewName("welcome.html");
+        modelAndView.setViewName("welcome");
 
         return modelAndView;
     }
@@ -38,7 +38,7 @@ public class IndexController {
         System.out.println("Index Controller Request");
 
         ModelAndView modelAndView  = new ModelAndView();
-        modelAndView.setViewName("register.html");
+        modelAndView.setViewName("register");
 
         return modelAndView;
     }
