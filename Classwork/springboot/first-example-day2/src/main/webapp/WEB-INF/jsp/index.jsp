@@ -13,7 +13,12 @@
 <body>
     <h1>Devins Index Page</h1>
     <form method="get" action="/">
-        Search : <input type="text" name="search" value="${search}">
+        Search On Course Name :
+        <input type="text" name="course" value="${course}">
+        <br>
+        Search On Instructor Name :
+        <input type="text" name="instructor" value="${instructor}">
+
 
         <button type="submit">Search</button>
     </form>
@@ -29,6 +34,7 @@
                    <tr>
                        <td>${course.id}</td>
                        <td>${course.name}</td>
+                       <td>${course.instructorName}</td>
                    </tr>
                </c:forEach>
            </table>

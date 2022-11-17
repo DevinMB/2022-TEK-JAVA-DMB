@@ -20,15 +20,22 @@ public class IndexController {
     CourseService courseService;
 
     @RequestMapping(value = {"/","/index","/index.html"} ,  method = RequestMethod.GET)
-    public ModelAndView slash(@RequestParam(required = false) String search){
-        System.out.println("Index Controller Request Search: "+ search);
+    public ModelAndView slash(
+            @RequestParam(required = false) String course,
+            @RequestParam(required = false) String instructor)
+            {
+        System.out.println("Index Controller Request Search: "+ course + " " + instructor);
 
         ModelAndView modelAndView  = new ModelAndView();
         modelAndView.setViewName("index");
 
-        List<Course> courses = courseService.findByNameContainingIgnoreCaseOrderByNameDesc(search);
+        List<Course> courses = new ArrayList<>();
 
-        modelAndView.addObject("search",search);
+
+        courses = courseService.findByInstructorAndCourseName("%"+course+"%","%"+instructor+"%");
+
+        modelAndView.addObject("instructor",instructor);
+        modelAndView.addObject("course",course);
         modelAndView.addObject("courses",courses);
 
 //        modelAndView.addObject("name","vick");
