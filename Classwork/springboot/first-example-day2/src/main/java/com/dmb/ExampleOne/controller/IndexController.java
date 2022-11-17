@@ -27,18 +27,16 @@ public class IndexController {
         System.out.println("Index Controller Request Search: "+ course + " " + instructor);
 
         ModelAndView modelAndView  = new ModelAndView();
+
         modelAndView.setViewName("index");
 
         List<Course> courses = new ArrayList<>();
-
 
         courses = courseService.findByInstructorAndCourseName("%"+course+"%","%"+instructor+"%");
 
         modelAndView.addObject("instructor",instructor);
         modelAndView.addObject("course",course);
         modelAndView.addObject("courses",courses);
-
-//        modelAndView.addObject("name","vick");
 
         return modelAndView;
     }
