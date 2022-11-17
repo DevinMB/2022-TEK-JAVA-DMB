@@ -6,9 +6,11 @@ import com.dmb.ExampleOne.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,18 +20,15 @@ public class IndexController {
     CourseService courseService;
 
     @RequestMapping(value = {"/","/index","/index.html"} ,  method = RequestMethod.GET)
-    public ModelAndView slash(){
-        System.out.println("Index Controller Request");
+    public ModelAndView slash(@RequestParam(required = false) String search){
+        System.out.println("Index Controller Request Search: "+ search);
 
         ModelAndView modelAndView  = new ModelAndView();
         modelAndView.setViewName("index");
 
-        List<Course> courses = courseService.findAll();
+        List<Course> courses = courseService.findByNameContainingIgnoreCaseOrderByNameDesc(search);
 
-//        for (Course c : courses) {
-//            System.out.println(c.getName());
-//        }
-
+        modelAndView.addObject("search",search);
         modelAndView.addObject("courses",courses);
 
 //        modelAndView.addObject("name","vick");

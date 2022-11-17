@@ -11,8 +11,18 @@
 </head>
 
 <body>
+    <h1>Devins Index Page</h1>
+    <form method="get" action="/">
+        Search : <input type="text" name="search" value="${search}">
+
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
+    <br>
+
     <div>
-        <div>Here are all the courses wow I like Thymleaf more</div>
+
 
         <table>
                <c:forEach items="${courses}" var="course">
