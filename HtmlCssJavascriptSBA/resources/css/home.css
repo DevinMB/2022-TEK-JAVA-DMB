@@ -18,14 +18,14 @@ body{
 
 body header{
     width: 100%;
-    max-width: 125em;
+    max-width: 110em;
     min-width: 50em;
     margin-top: 1em;
   
 }
 
 body .main_app_container{
-    max-width: 120em;
+    max-width: 105em;
     min-width: 50em;
 }
 
@@ -125,6 +125,11 @@ body .main_app_container{
     flex: 2;
     background-color: orange;
     display: flex;
+    flex-direction: column;
+}
+
+.main_content p{
+    margin-left: 1em;
 }
 
 
@@ -136,8 +141,6 @@ body .main_app_container{
 
 
 /* SIDEBAR */
-
-
 
 .sidebar{
     flex: 1;
