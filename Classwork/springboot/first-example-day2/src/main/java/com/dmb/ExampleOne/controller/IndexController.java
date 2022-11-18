@@ -1,6 +1,5 @@
 package com.dmb.ExampleOne.controller;
 
-
 import com.dmb.ExampleOne.entitymodels.Course;
 import com.dmb.ExampleOne.service.CourseService;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +41,6 @@ public class IndexController {
         return modelAndView;
     }
 
-
     @RequestMapping(value = {"/course", "/course.html"}, method = RequestMethod.GET)
     public ModelAndView course() {
         log.debug("Index Controller Course Request Method");
@@ -52,7 +50,6 @@ public class IndexController {
         modelAndView.setViewName("course");
 
         return modelAndView;
-
     }
 
     @RequestMapping(value = {"/course", "/course.html"}, method = RequestMethod.POST)
@@ -74,8 +71,10 @@ public class IndexController {
         c.setName(courseName);
         c.setInstructorName(instructorName);
 
+
+//      VALIDATE INPUT AND ERROR HANDLE
         boolean valid = true;
-        String result = "Fail";
+        String result = "Epic Fail!";
 
         if(c.getName()==null || c.getName()==""){
             modelAndView.addObject("name_error","Name is blank, please provide a name.");
@@ -98,37 +97,6 @@ public class IndexController {
 
         return modelAndView;
     }
-
-
-//    @RequestMapping(value = {"/welcome","/welcome.html"} ,  method = RequestMethod.GET)
-//    public ModelAndView welcome(){
-//        System.out.println("Index Controller Request");
-//
-//        ModelAndView modelAndView  = new ModelAndView();
-//        modelAndView.setViewName("welcome");
-//
-//        return modelAndView;
-//    }
-//
-//    @RequestMapping(value = {"/register","/register.html"} ,  method = RequestMethod.GET)
-//    public ModelAndView register(){
-//        System.out.println("Index Controller Request");
-//
-//        ModelAndView modelAndView  = new ModelAndView();
-//        modelAndView.setViewName("register");
-//
-//        return modelAndView;
-//    }
-
-//    @RequestMapping(value = {"/search","/search.html"}, method = RequestMethod.GET)
-//    public ModelAndView search() {
-//        System.out.println("Index controller search request");
-//
-//        ModelAndView modelAndView  = new ModelAndView();
-//        modelAndView.setViewName("search.html");
-//
-//        return modelAndView;
-//    }
 
 
 }
