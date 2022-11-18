@@ -14,9 +14,17 @@
 
     <h1>Create a new course</h1>
     <form  method="post" action="/course">
-        Course Name:  <input type="text" name="courseName"">
+        Course Name:  <input type="text" name="courseName" value="${courseName}">
+        <c:if test="${not empty name_error}">
+            <br>
+            <p style="color:red">${name_error}</p>
+        </c:if>
         <br>
-        Instructor Name: <input type="text" name="instructorName"">
+        Instructor Name: <input type="text" name="instructorName" value="${instructorName}">
+        <c:if test="${not empty instructor_error}">
+            <br>
+                <p style="color:red">${instructor_error}</p>
+        </c:if>
         <br>
         <button type="submit">Submit</button>
     </form>

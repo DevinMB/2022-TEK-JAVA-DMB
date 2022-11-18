@@ -66,23 +66,35 @@ public class IndexController {
 
         modelAndView.setViewName("course");
 
-        Course c = new Course();
+        modelAndView.addObject("instructorName", instructorName);
+        modelAndView.addObject("courseName", courseName);
 
+
+        Course c = new Course();
         c.setName(courseName);
         c.setInstructorName(instructorName);
 
-
-        Course newCourse = courseService.save(c);
-
-        boolean success = newCourse.getName() != null;
-
+        boolean valid = true;
         String result = "Fail";
 
-        if(success){
-            result = "Success!";
+        if(c.getName()==null || c.getName()==""){
+            modelAndView.addObject("name_error","Name is blank, please provide a name.");
+            valid = false;
+        }
+        if(c.getInstructorName()==null || c.getInstructorName()==""){
+            modelAndView.addObject("instructor_error","Instructor is blank, please provide an instructor name.");
+            valid = false;
+        }
+        if(valid){
+            Course newCourse = courseService.save(c);
+            boolean success = newCourse.getName() != null;
+            if(success){
+                result = "Success!";
+            }
         }
 
         modelAndView.addObject("insert_status", result);
+
 
         return modelAndView;
     }
