@@ -3,6 +3,7 @@ package com.dmb.ExampleOne.controller;
 
 import com.dmb.ExampleOne.entitymodels.Course;
 import com.dmb.ExampleOne.service.CourseService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,30 +14,75 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @RestController
 public class IndexController {
 
     @Autowired
     CourseService courseService;
 
-    @RequestMapping(value = {"/","/index","/index.html"} ,  method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/index", "/index.html"}, method = RequestMethod.GET)
     public ModelAndView slash(
             @RequestParam(required = false) String course,
-            @RequestParam(required = false) String instructor)
-            {
-        System.out.println("Index Controller Request Search: "+ course + " " + instructor);
+            @RequestParam(required = false) String instructor) {
+        System.out.println("Index Controller Request Search: " + course + " " + instructor);
 
-        ModelAndView modelAndView  = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.setViewName("index");
 
         List<Course> courses = new ArrayList<>();
 
-        courses = courseService.findByInstructorAndCourseName("%"+course+"%","%"+instructor+"%");
+        courses = courseService.findByInstructorAndCourseName("%" + course + "%", "%" + instructor + "%");
 
-        modelAndView.addObject("instructor",instructor);
-        modelAndView.addObject("course",course);
-        modelAndView.addObject("courses",courses);
+        modelAndView.addObject("instructor", instructor);
+        modelAndView.addObject("course", course);
+        modelAndView.addObject("courses", courses);
+
+        return modelAndView;
+    }
+
+
+    @RequestMapping(value = {"/course", "/course.html"}, method = RequestMethod.GET)
+    public ModelAndView course() {
+        log.debug("Index Controller Course Request Method");
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("course");
+
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = {"/course", "/course.html"}, method = RequestMethod.POST)
+    public ModelAndView addCourse(
+            @RequestParam(value = "courseName") String courseName,
+            @RequestParam(value = "instructorName") String instructorName
+    ) {
+        log.debug("Index Controller Course Submit Method");
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("course");
+
+        Course c = new Course();
+
+        c.setName(courseName);
+        c.setInstructorName(instructorName);
+
+
+        Course newCourse = courseService.save(c);
+
+        boolean success = newCourse.getName() != null;
+
+        String result = "Fail";
+
+        if(success){
+            result = "Success!";
+        }
+
+        modelAndView.addObject("insert_status", result);
 
         return modelAndView;
     }
@@ -71,7 +117,6 @@ public class IndexController {
 //
 //        return modelAndView;
 //    }
-
 
 
 }

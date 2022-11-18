@@ -14,12 +14,16 @@ import javax.persistence.*;
 public class Course {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "name")
     private String name;
     @Column(name = "instructor")
     private String instructorName;
+
+    public Course(String className, String instructorName) {
+    }
 
     @Override
     public String toString() {

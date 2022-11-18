@@ -27,8 +27,6 @@
     <br>
 
     <div>
-
-
         <table>
                <c:forEach items="${courses}" var="course">
                    <tr>

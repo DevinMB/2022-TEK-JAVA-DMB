@@ -2,9 +2,12 @@ package com.dmb.ExampleOne.service;
 
 import com.dmb.ExampleOne.entitymodels.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -28,5 +31,10 @@ public interface CourseService extends JpaRepository<Course, Long> {
 
     public List<Course>  findByNameContainingIgnoreCaseOrderByNameDesc(String search);
 
+
+//    @Modifying
+//    @Query(value = "insert into Course (name,instructorName) VALUES (:name,:instructorName)", nativeQuery = true)
+//    @Transactional
+//    void addCourse(@Param("name") String courseName, @Param("instructorName") String instructorName);
 
 }
