@@ -37,7 +37,7 @@
                        <td>${course.instructorName}</td>
                    </tr>
                </c:forEach>
-           </table>
+        </table>
     </div>
 </body>
 
