@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 
 @Repository
@@ -35,9 +36,7 @@ public interface CourseService extends JpaRepository<Course, Long> {
     <S extends Course> S save(S entity);
 
 
-
-
-
+    Course findById(Integer id);
 
     //    @Modifying
 //    @Query(value = "insert into Course (name,instructorName) VALUES (:name,:instructorName)", nativeQuery = true)

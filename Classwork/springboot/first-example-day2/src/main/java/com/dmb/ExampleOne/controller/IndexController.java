@@ -3,13 +3,13 @@ package com.dmb.ExampleOne.controller;
 import com.dmb.ExampleOne.entitymodels.Course;
 import com.dmb.ExampleOne.service.CourseService;
 import lombok.extern.slf4j.Slf4j;
+
+import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,6 +97,31 @@ public class IndexController {
 
         return modelAndView;
     }
+
+    @ResponseBody
+    @RequestMapping(value = {"/course/path/{id}"},method= RequestMethod.GET)
+    public Course pathVaR(@PathVariable Integer id, HttpSession session){
+
+        log.info("Incoming path varialble = " + id);
+
+        Course c = courseService.findById(id);
+
+        log.info("this is my course name " + c.getName());
+
+
+        if(session.getAttribute("key") == null){
+            log.info("Key not found in session" );
+            session.setAttribute("key","value");
+
+        }else{
+            log.info("Key is in the session ");
+        }
+
+        return c;
+
+    }
+
+
 
 
 }
